@@ -1,0 +1,4 @@
+matplotlib
+win32gui
+psutil
+win32process
