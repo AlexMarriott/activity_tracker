@@ -19,7 +19,6 @@ def write_to_file(application, app_time):
     if not os.path.isfile("{0}.json".format(today)):
         with open("{0}.json".format(today), "w") as f:
             json.dump({today: {}}, f)
-            print("what")
             f.close()
     with open("{0}.json".format(date.today()), 'r+') as file:
             data = json.load(file)
@@ -28,8 +27,8 @@ def write_to_file(application, app_time):
             except KeyError as e:
                 print(e)
                 new_time = app_time
+
             data[today][application] = new_time
-            print(data)
             file.seek(0)
             json.dump(data, file)
 
@@ -48,8 +47,6 @@ while check:
         start = time.time()
         # Check if the pid is still alive
         while get_current_pid()[0] == current_application_pid:
-            print(current_application)
-            print(current_application_pid)
             time.sleep(0.5)
         end = time.time()
         applications[current_application] = round(end - start)
@@ -58,4 +55,5 @@ while check:
         print(e)
     except NoSuchProcess as no:
         print(no)
+
     write_to_file(current_application, applications[current_application])
