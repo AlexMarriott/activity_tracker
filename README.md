@@ -1,4 +1,4 @@
-# Activity_Tracker
+# Activity Tracker
 
 This project is still a work in progress, the idea for it is to tracker the amount of time spent on applications.
 
